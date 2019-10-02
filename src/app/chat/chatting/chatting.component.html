@@ -1,0 +1,27 @@
+
+<div class="chats">
+    <button type="button" class="btn" *ngIf="chats.length > 0" (click)="getOlderChats()">View More</button>
+    <div *ngIf="chats.length > 0; else nochat">
+        <div  *ngFor="let message of chats">
+
+          <div class="date" *ngIf="message.isNewDate">
+            {{ message.stamp | date: 'mediumDate' }}
+          </div>
+            <div class="chat-message chat" [class.user]="message.from == username">
+                <div class="message">{{ message.message }}</div>
+                <div class="stamp">{{ message.stamp | date: 'hh:mm:ss' }}</div>
+              </div>
+        </div>
+      </div>
+      <div class="input">
+          <app-chat-input (newMessage)="onNewMessage($event)" [friend]="friend" *ngIf="friend"></app-chat-input>
+      </div>
+
+      <ng-template #nochat>
+        Start a chat with {{ friend.username }}
+      </ng-template>
+</div>
+
+
+
+

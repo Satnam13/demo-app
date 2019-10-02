@@ -1,0 +1,7 @@
+<span>{{ friend.isOnline=='online' ? 'online' : 'Offline' }}</span><br>
+<div class="container">
+    <input [(ngModel)]="inputMsg" type="text" (keyup.enter)="onKeyUp()" class="form-control">
+    <span class="send-container" (click)="onKeyUp()">
+      <i class="fa fa-paper-plane"></i>
+    </span>
+</div>

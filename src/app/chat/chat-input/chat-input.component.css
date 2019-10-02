@@ -1,0 +1,11 @@
+.container {
+  position: relative;
+}
+.form-control{
+  width: 100%;
+}
+.send-container {
+  position: absolute;
+  top: 0;
+  margin-left: 1.1rem;
+}

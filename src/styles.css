@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+:root {
+  --dark: rgb(63, 45, 45);
+  --light: rgb(187, 185, 185);
+  --paleOrange: rgb(235, 174, 61);
+  --paleGreen: rgb(49, 202, 49);
+  --mainWhite: rgb(224, 219, 219);
+  overflow-x: hidden;
+}

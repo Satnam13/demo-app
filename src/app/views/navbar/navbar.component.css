@@ -1,0 +1,30 @@
+.navbar {
+  background: rgb(118, 163, 163);
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+.navbar-nav {
+  position: relative;
+  right: 0px;
+}
+.nav-item {
+  display: inline-block;
+  margin: 2px;
+}
+a {
+  cursor: pointer;
+}
+.active {
+  color: #fff;
+}
+
+.logout {
+  position: relative;
+  margin-left: 90%;
+  color: var(--mainWhite);
+  border: 4px solid var(--mainWhite);
+  padding: 0.6rem;
+}

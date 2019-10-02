@@ -1,0 +1,170 @@
+<div class="container">
+  <div class="slider">
+    <div class="form">
+      <form
+        [formGroup]="registerForm"
+        #form="ngForm"
+        (ngSubmit)="onSubmit(form.hasError())"
+      >
+        <div class="first-block" #firstBlock>
+          <div class="form-group">
+            <label class="help-label" for="username">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="username"
+              id="username"
+              autocomplete="off"
+              placeholder="Enter your name"
+            />
+            <span class="help-block"
+              *ngIf="
+                registerForm.get('username').invalid &&
+                registerForm.get('username').dirty
+              "
+            >
+              <span *ngIf="registerForm.get('username').errors?.required">
+                Name is required
+              </span>
+              <span *ngIf="registerForm.get('username').errors?.minlength">
+                name should be atleast 4 characters long
+              </span>
+              <span *ngIf="registerForm.get('username').errors?.maxlength">
+                Name should be atmost 12 characters long
+              </span>
+              <span *ngIf="registerForm.get('username').errors?.alreadyUsed">
+                  Name is already used
+                </span>
+            </span>
+          </div>
+          <div class="form-group">
+            <label class="help-label" for="email">Email</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="email"
+              id="email"
+              placeholder="Enter your email"
+            />
+            <span
+              *ngIf="
+                registerForm.get('email').invalid &&
+                registerForm.get('email').dirty
+              "
+              class="help-block"
+            >
+              <span *ngIf="registerForm.get('email').errors?.email">
+                Email is not correct
+              </span>
+              <span *ngIf="registerForm.get('email').errors?.required">
+                Email is required
+              </span>
+              <span *ngIf="registerForm.get('email').errors?.alreadyUsed">
+                  Email is already used
+                </span>
+            </span>
+          </div>
+          <button
+            [disabled]="
+              registerForm.get('email').invalid ||
+              registerForm.get('username').invalid
+            "
+            type="button" class="toggle-btn" [class.disabled-btn]="registerForm.get('email').invalid ||
+            registerForm.get('username').invalid"
+            (click)="changeBlock('first')"
+          >
+            next
+          </button>
+        </div>
+
+        <div class="second-block" #secondBlock>
+          <div class="form-group">
+            <label class="help-label" for="dob">DOB</label>
+            <input
+              type="date"
+              class="form-control"
+              formControlName="dob"
+              id="dob"
+              placeholder="Enter your dob"
+            />
+            <span
+              *ngIf="
+                registerForm.get('dob').invalid &&
+                registerForm.get('dob').dirty
+              "
+              class="help-block"
+            >DOB is required</span>
+          </div>
+          <div class="password-group form-group" formGroupName="passwordGroup">
+            <div class="form-group">
+              <label class="help-label" for="password">password</label>
+              <input
+                type="password"
+                class="form-control"
+                formControlName="password"
+                id="password"
+                placeholder="Enter your password"
+              />
+              <span
+              *ngIf="
+                registerForm.get('passwordGroup.password').invalid &&
+                registerForm.get('passwordGroup.password').dirty
+              "
+              class="help-block"
+            >Password is required</span>
+            </div>
+            <div class="form-group">
+              <label class="help-label" for="confirm-password">confirm password</label>
+              <input
+                type="password"
+                formControlName="confirmPassword"
+                class="form-control"
+                id="confirm-password"
+                placeholder="confirm-password"
+              />
+              <span
+              *ngIf="
+                registerForm.get('passwordGroup.confirmPassword').invalid &&
+                registerForm.get('passwordGroup.confirmPassword').dirty
+              "
+              class="help-block"
+            >Confirm password is required</span>
+            </div>
+            <span
+            *ngIf="
+              registerForm.get('passwordGroup').invalid &&
+              registerForm.get('passwordGroup.password').dirty && registerForm.get('passwordGroup.confirmPassword').dirty
+            "
+            class="help-block"
+          >Password and confirm password do not match</span>
+
+          </div>
+
+          <div class="form-group">
+            <label class="help-label" for="country">Select country</label>
+            <select class="formGroup" id="country" formControlName="country">
+              <option
+                *ngFor="let country of countries"
+                class="form-control"
+                [value]="country.value"
+                >{{ country.name }}</option
+              >
+            </select>
+          </div>
+          <button class="toggle-btn" [disabled]="registerForm.invalid" type="submit">
+            Submit
+          </button>
+          <button class="toggle-btn" type="button" (click)="changeBlock('second')">
+            previous
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="slider-position">
+      <div #firstCircle class="slider-circle active-circle"></div>
+      <div #secondCircle class="slider-circle"></div>
+    </div>
+  </div>
+  <a [routerLink]="['/user/login']" class="extras">Already registered!</a>
+
+</div>

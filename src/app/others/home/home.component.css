@@ -1,0 +1,63 @@
+.common-styles {
+  height: calc(100vh - 50px);
+  background: grey;
+  overflow-x: hidden
+}
+.intro {
+  text-align: center;
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('../../../assets/Nice-HD-Wallpaper-1-1366x768.jpeg') center/cover fixed no-repeat;
+}
+.intro-main {
+  position: relative;
+  top: 50%;
+
+}
+.intro-title {
+  color: var(--mainWhite);
+  letter-spacing: 0.4rem;
+  font-weight: 900;
+  font-size: 3rem;
+  margin: 1.4rem;
+  animation: slide 2s 0s ease-in-out 1 forwards;
+}
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: skewX(90deg)
+  }
+  100% {
+    opacity: 1;
+    transform: skewX(0deg)
+  }
+}
+.intro-btn {
+  border: none;
+  padding: 0.7rem;
+  margin: 1.2rem;
+  color: var(--paleOrange);
+  outline: 3px solid var(--paleOrange);
+  outline-offset: -6px;
+  font-size: 2.9rem;
+  cursor: pointer;
+}
+.getting-started {
+  background: var(--mainWhite);
+  margin: 0;
+  padding: 2.2rem;
+}
+.register {
+  width: 100%;
+  height: 100%;
+  border-left: 2px solid red;
+  border-bottom: 2px solid red;
+  border-radius: 8%;
+}
+.about {
+  background: #f5f5f5;
+  margin: 0
+}
+.footer {
+  width: 100vw;
+  height: 60px;
+  background: cyan;
+}

@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="chat-sidebar-container">
+    <div *ngIf="friends.length > 0">
+        <app-chat-sidebar>
+            <div *ngFor="let friend of friends" (click)="onFriendChosenForChat(friend.username)" class="friend-list">
+                {{ friend.username | uppercase }}
+                <span [class.offline]="!friend.isOnline" [class.online]="friend.isOnline"><sup>*</sup></span>
+              </div>
+      </app-chat-sidebar>
+      </div>
+          <!-- search and send friend request -->
+
+          <div class="form-group">
+              <input type="text" placeholder="search people" #search id="search" class="form-control" (input)="onType(search.value)">
+            </div>
+            <ng-container *ngIf="loader; then loading; else users">
+            </ng-container>
+            <ng-template #loading>loading...</ng-template>
+            <ng-template #users>
+              <div>
+                {{ err }}
+                <div *ngFor="let result of searchResult">
+                  {{ result.username }}
+                  <button type="button" *ngIf="friendsMapping(result.username)" (click)="onAddRequest(result.username)">Add friend</button>
+                </div>
+              </div>
+            </ng-template>
+
+
+        <!-- view and accept requests -->
+
+
+      <div>
+        <!-- <app-friend-requests> -->
+    <div *ngIf="state?.requests.length > 0">
+        <div *ngFor="let request of state.requests; let i=index">
+          {{ request }}
+          <button type="button" (click)="onAcceptRequest(request, index)">Accept</button>
+        </div>
+      </div>
+    <!-- </app-friend-requests> -->
+    <!-- <ng-template #friendRequest>
+
+      <div *ngIf="requests.length > 0" *ngFor="let friend of requests">
+        {{ friend }}
+      </div>
+    </ng-template> -->
+
+      </div>
+
+  </div>
+</div>
+
+<div class="chat-main-container">
+  <router-outlet></router-outlet>
+</div>
+

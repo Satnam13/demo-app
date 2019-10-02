@@ -1,0 +1,51 @@
+.chats {
+  width: auto;
+  height: 90vh;
+  box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 4rem 0;
+}
+.btn {
+  border: none;
+  width: 100%;
+  height: 2rem;
+  color: var(--mainWhite);
+  background: var(--paleOrange);
+  margin-bottom: 0.6rem;
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+.chat {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  max-width: 70%;
+  overflow: auto;
+}
+.chat-message {
+  background: yellow;
+  border: 2px solid green;
+
+}
+.user {
+margin-left: 100%;
+transform: translateX(-102%);
+background: cyan
+}
+.message {
+  margin-left: 0.1rem
+}
+.stamp {
+  text-align: right;
+}
+.date {
+  text-align: center;
+  position: sticky;
+  top: 0;
+}
+.input {
+  position: fixed;
+  bottom: 10px;
+  width: 60%
+}

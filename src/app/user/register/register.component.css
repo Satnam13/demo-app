@@ -1,0 +1,50 @@
+.container {
+  padding: 3.4rem;
+}
+.help-label {
+  color: var(--paleGreen);
+  font-size: 1.4rem;
+  letter-spacing: 0.4rem;
+  margin: 1.2rem;
+}
+.form-control {
+  margin: 3.2rem;
+  border-radius: 20px;
+  font-size: 1.2rem;
+}
+.help-block {
+  color: red;
+  font-size: 1rem;
+}
+.second-block {
+  display: none;
+  position: relative;
+}
+.toggle-btn {
+  border: none;
+  padding: 0.4rem;
+  margin: 1.2rem;
+  color: var(--paleOrange);
+  outline: 3px solid var(--paleOrange);
+  outline-offset: -6px;
+  font-size: 1.9rem;
+  cursor: pointer;
+}
+.disabled-btn {
+  cursor: not-allowed
+}
+.slider-position {
+  position: relative;
+  left: 70%;
+}
+.slider-circle {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: grey;
+  margin: 1.4em 0.2em
+}
+.active-circle {
+  background: orange;
+}
